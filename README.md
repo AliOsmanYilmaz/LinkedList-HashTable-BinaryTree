@@ -1,2 +1,2 @@
 # LinkedList-HashTable-BinaryTree
-I created linkedlist,hashtable an binarytree in Java.
+I created linkedlist,hashtable and binarytree app in Java.

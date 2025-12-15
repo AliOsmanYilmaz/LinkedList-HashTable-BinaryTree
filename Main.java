@@ -34,10 +34,10 @@ class Main
     {
         Scanner input = new Scanner(System.in);
 
-        int a = -1,b = -1,length,sayi,index;
+        int a = -1,b,length,sayi,index;
 
         System.out.println();
-        System.out.println("Uygulamamaya Hoş Geldiniz");
+        System.out.println("Uygulamaya Hoş Geldiniz");
 
         while (a != 0)
         {
@@ -321,7 +321,9 @@ class Main
                                             System.out.println("Hatalı seçim");
                                     }
 
+                                    System.out.print("Baştan : ");
                                     list2.yazdir();
+                                    System.out.print("Sondan : ");
                                     list2.sondanYazdir();
                                 }
                                 break;
@@ -409,7 +411,9 @@ class Main
                                             System.out.println("Hatalı seçim");
                                     }
 
+                                    System.out.print("Baştan : ");
                                     list3.yazdir();
+                                    System.out.print("Sondan : ");
                                     list3.sondanYazdir();
                                 }
                                 break;
@@ -562,7 +566,7 @@ class Main
     }
 }
 
-
+//Classlar
 //--------------------------------------------------------------------------------------------
 
 
@@ -1070,23 +1074,50 @@ class TekYonluBagilListe
             System.out.println("Liste boş");
         }
 
-        else if (index == 0)
+        else if(head.next == null)
         {
-            bastanSil();
+            head = null;
+        }
+
+        else if (index <= 0)
+        {
+            head = head.next;
         }
 
         else
         {
             Node current = head;
-            int a = 0;
+            Node current1 = current;
+            int n = 0;
 
-            while(index != (a + 1))
+            while(current.next != null)
             {
+                n++;
+                current1 = current;
                 current = current.next;
-                a++;
+            }
+            n++;
+
+            if(index >= n)
+            {
+                current1.next = null;
             }
 
-            current.next = current.next.next;
+            else
+            {
+                current = head;
+                current1 = current;
+                int i = 0;
+
+                while(index != i)
+                {
+                    i++;
+                    current1 = current;
+                    current = current.next;
+                }
+
+                current1.next = current.next;
+            }
         }
 
     }
@@ -1126,6 +1157,10 @@ class TekYonluBagilListe
 
     public float elemanOrtDeger()
     {
+        if(head == null)
+        {
+            return 0;
+        }
         float ort;
         ort = (float) elemanToplami() / elemanSayisiYazdir();
         return ort;
@@ -1436,6 +1471,11 @@ class TekYonluDaireselListe
 
     public int elemanSayisiYazdir()
     {
+        if(head == null)
+        {
+            return 0;
+        }
+
         Node1 current = head;
         int a = 0;
         while(current != tail)
@@ -1452,6 +1492,11 @@ class TekYonluDaireselListe
 
     public int elemanToplami()
     {
+        if(head == null)
+        {
+            return 0;
+        }
+
         Node1 current = head;
         int toplam = 0;
 
@@ -1469,6 +1514,11 @@ class TekYonluDaireselListe
 
     public float elemanOrtDeger()
     {
+        if(head == null)
+        {
+            return 0;
+        }
+
         float ortDeger;
 
         ortDeger = (float) elemanToplami() / elemanSayisiYazdir();
@@ -1806,6 +1856,11 @@ class CiftYonluBagilListe
 
     public float elemanOrtDeger()
     {
+        if(head == null)
+        {
+            return 0;
+        }
+
         float ortDeger = 0;
 
         ortDeger = (float) elemanToplami() / elemanSayisiYazdir();
@@ -2155,6 +2210,10 @@ class CiftYonluDaireselListe
 
     public int elemanSayisiYazdir()
     {
+        if(head == null)
+        {
+            return 0;
+        }
         Node3 current = head;
         int a = 0;
         while(current != tail)
@@ -2171,6 +2230,11 @@ class CiftYonluDaireselListe
 
     public int elemanToplami()
     {
+        if(head == null)
+        {
+            return 0;
+        }
+
         Node3 current = head;
         int toplam = 0;
 
@@ -2188,6 +2252,11 @@ class CiftYonluDaireselListe
 
     public float elemanOrtDeger()
     {
+        if(head == null)
+        {
+            return 0;
+        }
+
         float ortDeger;
 
         ortDeger = (float) elemanToplami() / elemanSayisiYazdir();
